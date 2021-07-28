@@ -3,8 +3,8 @@ var subtract = (a, b) => a - b;
 var multiply = (a, b) => a * b;
 var divide = (a, b) => a / b;
 
-let a
-let b
+let a =2
+let b = 10
 let operator
 
 function operate(a, b, operator) {
@@ -27,9 +27,11 @@ const btnAdd = document.querySelector('#buttonAdd');
 const btnSub = document.querySelector('#buttonSubtract');
     btnSub.onclick = () => operator = '-';
 const btnMult = document.querySelector('#buttonMultiply');
-    btnMult = () => operator = '*';
+    btnMult.onclick = () => operator = '*';
 const btnDiv =  document.querySelector('#buttonDivide');
-    btnDiv = () => operator = '/';
+    btnDiv.onclick = () => operator = '/';
+const btnEqual = document.querySelector('#buttonEqual');
+    btnEqual.onclick = () => operate();
 
     
 
