@@ -1,30 +1,36 @@
 //Operator functions
-var add = (a, b) => a + b;
-var subtract = (a, b) => a - b;
-var multiply = (a, b) => a * b;
-var divide = (a, b) => a / b;
+var add = (a, b) => parseInt(a) + parseInt(b)
+var subtract = (a, b) => a - b
+var multiply = (a, b) => a * b
+var divide = (a, b) => a / b
 
-var a =2
-var b = 10
-var operator
-
+var a = null
+var b = null
+var operator = null
+var sum = null
 
 
 function operate(a, b, operator) {
     if (operator !== '+' && operator !== '-' && operator !== '*' && operator !== '/') return;
-    switch(operator) {
-        case '+':
-            return add(a, b);
-        case '-':
-            return subtract(a, b);
-        case '*':
-            return multiply(a, b);
-        case '/':
-            return divide(a, b);
-        };
-    };   
+        switch(operator) {
+            case '+':
+                sum = add(a, b);
+                break;
+            case '-':
+                sum = subtract(a, b);
+                break;
+            case '*':
+                sum = multiply(a, b);
+                break;
+            case '/':
+                if (b == 0) return;
+                sum = divide(a, b);
+                break;
+            };
+}; 
+  
 
-//Defines operator using buttons
+//Defines the operator using the html buttons
 const btnAdd = document.querySelector('#buttonAdd');
     btnAdd.onclick = () => operator = '+';
 const btnSub = document.querySelector('#buttonSubtract');
@@ -34,22 +40,42 @@ const btnMult = document.querySelector('#buttonMultiply');
 const btnDiv =  document.querySelector('#buttonDivide');
     btnDiv.onclick = () => operator = '/';
 const btnEqual = document.querySelector('#buttonEqual');
-    btnEqual.onclick = () => operate(a, b, operator);
+    btnEqual.onclick = () => {
+        operate(a, b, operator);
+        console.log(sum);
+    };
+const btnClear = document.querySelector('#buttonClear');
+    btnClear.onclick = () => {
+        a = null
+        b = null
+        operator = null
+    };
 
-//Creates buttons for numbers
+//Creates buttons for numbers 0-9
 (function () {
     for (i = 0; i < 10 ; i++) {
         div = document.createElement('button');
-            div.setAttribute('id', `${i}`);
+            div.setAttribute('class', `number`);
             div.innerHTML = `${i}`;
-            div.addEventListener('click', () => changeValue())
             document.querySelector('.buttonsNum').appendChild(div);
     }
 }) ();
 
-//Defines values for calculator
-const btnValue = document.getElementsByClassName('.buttonsNum')
-function changeValue() {
-    console.log(`${i}`)
-}
-console.log(operate(2, 3,'/'))
+//Defines values 'a' and 'b' for calculation
+const btnNumber = document.querySelectorAll('.number');
+    btnNumber.forEach((button) =>
+        button.addEventListener('click', () => concatNumber(button.textContent))
+    );
+    function concatNumber(value) {
+        if (operator == null) {
+            a == null ? a = `${Number(value)}` : a = `${a}${Number(value)}`;
+            console.log(a)
+        } else {
+            b == null ? b = `${Number(value)}` : b = `${b}${Number(value)}`;
+            console.log(b)
+            operate(a, b, operator); //remove console.log
+            console.log(sum); //remove
+        };
+    };
+
+//
