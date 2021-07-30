@@ -11,7 +11,7 @@ var operator = null
 var sum = null
 
 function operate(a, b, operator) {
-    if (operator !== '+' && operator !== '-' && operator !== '*' && operator !== '/') return;
+    if (operator == null) return;
         switch(operator) {
             case '+':
                 sum = add(a, b);
@@ -52,6 +52,8 @@ const btnDiv =  document.querySelector('#buttonDivide');
         if (b !== null) repeatOperator();
         operator = '/';
     };
+const btnNegative = document.querySelector('#buttonNegative');
+    btnNegative.onclick = () => applyNegative();
 const btnEqual = document.querySelector('#buttonEqual');
     btnEqual.onclick = () => operate(a, b, operator);
 const btnClear = document.querySelector('#buttonClear');
@@ -84,6 +86,18 @@ function deleteNumber() {
         updateScreen(b);
     };
 }
+
+function applyNegative() {
+    if (operator == null) {
+        if (a == null) return;
+        a = parseInt(a * -1);
+        updateScreen(a);
+    } else {
+        if (b == null) return;
+        b = parseInt(b * -1);
+        updateScreen(b);
+    }; 
+};
 
 //Creates buttons for numbers 0-9
 // (function () {
