@@ -4,41 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Calculator</title>
+        <title>Calculator</title>
 
+    <div class="text-container">
+        <div class="text1">This is a simple calculator project that has similar functionality to the iOS calculator app. It uses basic JavaScript and DOM manipulation along with some CSS styling.</div>
+    </div>
+
+    <div class="calc-container">
     <div class="calculator">
 
         <input type="text" class="screen" value="0" disabled /> 
 
         <div class="calculator-buttons">
+            <button class="operator" id="buttonClear">AC</button>
+            <button class="operator" id="buttonDelete">DEL</button>
+            <button class="operator" id="buttonNegative">(-)</button>
+            <button class="operator" id="buttonDivide">%</button>
             
             <button class="number" id="7">7</button>
             <button class="number" id="8">8</button>
             <button class="number" id="9">9</button>
-            <button class="operator" id="buttonDivide">%</button>
+            <button class="operator" id="buttonMultiply">*</button>
             
             <button class="number" id="4">4</button>
             <button class="number" id="5">5</button>
             <button class="number" id="6">6</button>
-            <button class="operator" id="buttonMultiply">*</button>
+            <button class="operator" id="buttonSubtract">-</button>
             
             <button class="number" id="1">1</button>
             <button class="number" id="2">2</button>
             <button class="number" id="3">3</button>
-            <button class="operator" id="buttonSubtract">-</button>
+            <button class="operator" id="buttonAdd">+</button>
+            
             
             <button class="number" id="zero">0</button>
-            <button class="operator" id="buttonAdd">+</button>
-            <button class="operator" id="buttonClear">AC</button>
             <button class="operator" id="buttonEqual">=</button>
-            
-            <button class="operator" id="buttonDelete">Del</button>
-            <button class="operator" id="buttonNegative">(-)</button>
-            <!-- <div class="buttonsNum"></div> -->
-
         </div>
-
+    </div>
     </div>
 </head>
 <body>
