@@ -64,6 +64,11 @@ button {
 .number:hover {
   background-color:rgb(128, 247, 247);
   opacity: 1;
+  transform: translateY(-1.5px);
+}
+
+.number:active {
+  transform: translateY(2px);
 }
 
 button:active {
@@ -96,6 +101,11 @@ button:active {
 .operator:hover {
   background-color:rgb(253, 173, 53);
   opacity: 1;
+  transform: translateY(-1.5px);
+}
+
+.operator:active {
+  transform: translateY(2px);
 }
 
 #zero {
@@ -117,6 +127,11 @@ button:active {
 #buttonEqual:hover {
   background-color:rgb(153, 168, 255);
   opacity: 1;
+  transform: translateY(-1.5px);
+}
+
+#buttonEqual:active {
+  transform: translateY(2px);
 }
 
 .text1 {
